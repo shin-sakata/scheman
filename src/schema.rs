@@ -1,13 +1,11 @@
-use std::collections::HashMap;
+use std::collections::{BTreeMap, BTreeSet};
 
-type Object = HashMap<String, Schema>;
-type Array = Vec<Schema>;
-
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Schema {
     Null,
     Boolean,
     Number,
     String,
-    Array(Array),
-    Object(Object),
+    Array(BTreeSet<Schema>),
+    Object(BTreeMap<String, Schema>),
 }
