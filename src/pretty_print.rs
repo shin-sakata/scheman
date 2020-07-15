@@ -6,5 +6,5 @@ pub fn pretty(source: &str) -> Result<String, String> {
     let config = ConfigurationBuilder::new().line_width(80).build();
     let formatter = ty::Formatter::new(config);
 
-    formatter.format_text(&PathBuf::from(""), source)
+    formatter.format_text(&PathBuf::default(), source)
 }
